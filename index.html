@@ -102,8 +102,8 @@
             m1 = num_method[cur_ask[1]];
             m2 = num_method[cur_ask[2]];
 
-            col1_text = data[s_name][m1].slice(0, 20).join("</i></small><br>").replace(/\'/gi, "").replace(/\"/gi, '').replace(/\=\>/gi, '&nbsp&nbsp&nbsp&nbsp<small style="color: grey"><i>');
-            col2_text = data[s_name][m2].slice(0, 20).join("</i></small><br>").replace(/\'/gi, "").replace(/\"/gi, '').replace(/\=\>/gi, '&nbsp&nbsp&nbsp&nbsp<small style="color: grey"><i>');
+            col1_text = "<span style='float:left'>"+data[s_name][m1].slice(0, 20).join("</i></small></span><br><span style='float:left'>").replace(/\'/gi, "").replace(/\"/gi, '').replace(/\=\>/gi, '</span><span style="float:right"><small style="color: grey"><i>')+"</i></small></span>";
+            col2_text = "<span style='float:left'>"+data[s_name][m2].slice(0, 20).join("</i></small></span><br><span style='float:left'>").replace(/\'/gi, "").replace(/\"/gi, '').replace(/\=\>/gi, '</span><span style="float:right"><small style="color: grey"><i>')+"</i></small></span>";
             col1.innerHTML = col1_text;
             col2.innerHTML = col2_text;
           }else{
