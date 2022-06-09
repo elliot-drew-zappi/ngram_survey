@@ -75,18 +75,13 @@
 
         function makeBlindPairings(num_method, num_survey){
           let asks = [];
-          let combinations = Object.keys(num_method).flatMap(
+          combinations = Object.keys(num_method).flatMap(
               (v, i) => Object.keys(num_method).slice(i+1).map( w => [parseInt(v), parseInt(w)] )
           );
-          combinations_clean = []
-          for(let i = 0; i < combinations.length; i++){
-            if(combinations[i][0]!=combinations[i][1]){
-              combinations_clean.push(combinations[i])
-            }
-          }
+          
           Object.keys(num_survey).forEach(k => {
-            for(let i=0; i<combinations_clean.length; i++){
-              tmp = [k].concat(combinations_clean[i]);
+            for(let i=0; i<combinations.length; i++){
+              tmp = [k].concat(combinations[i]);
               asks.push(tmp)
             }
           })
