@@ -98,41 +98,6 @@
           return(asks_shuffled)
         }
 
-        // function makeBlindPairings(num_method, num_survey, max_asks){
-        //   let asks = [];
-        //   let seen = new Set();
-        //   for(let i=0;i<max_asks;i++){
-        //     // get two random surveys
-        //     r_sur = rnd_range(0, Object.keys(num_survey).length-1, true);
-        //     r_methods = rnd_range(0, Object.keys(num_method).length-1, true);
-        //     chosen_survey = r_sur[0];
-        //     chosen_method1 = r_methods[0];
-        //     chosen_method2 = r_methods[1];
-        //     pick = JSON.stringify([chosen_survey, chosen_method1, chosen_method2])
-        //     pick_r = JSON.stringify([chosen_survey, chosen_method2, chosen_method1])
-        //     // while(seen.has(pick) || seen.has(pick_r)){
-        //     //   console.log(pick)
-        //     //   r_sur = rnd_range(0, Object.keys(num_survey).length-1, true);
-        //     //   r_methods = rnd_range(0, Object.keys(num_method).length-1, true);
-        //     //   chosen_survey = r_sur[0];
-        //     //   chosen_method1 = r_methods[0];
-        //     //   chosen_method2 = r_methods[1];
-        //     //   pick = (chosen_survey, chosen_method1, chosen_method2)
-        //     //   pick_r = (chosen_survey, chosen_method2, chosen_method1)
-        //     // }
-        //     seen.add(pick)
-        //     seen.add(pick_r)
-        //     asks.push([chosen_survey, chosen_method1, chosen_method2])
-            
-        //   }
-        //   return(asks)
-        // };
-
-        // function getNewPair(){
-        //   cur_ask = asks.pop();
-        //   updatePage();
-        // };
-
         function updatePage(){
           if(asks.length>0){
             cur_ask = asks.pop();
@@ -148,7 +113,7 @@
             cur_ask = false;
             col1.innerHTML = "No more phrases!";
             col2.innerHTML = "No more phrases!";
-            // //results_div.innerHTML = "Thanks! Your results should be downloading now. Please send the file to XXXX on slack."
+            
           }
           
         }
@@ -165,7 +130,7 @@
           }else{
             col1.innerText = "No more phrases!";
             col2.innerText = "No more phrases!";
-            //results_div.innerHTML = "Thanks! Your results should be downloading now. Please send the file to XXXX on slack."
+            
           }
         };
 
@@ -181,7 +146,7 @@
           }else{
             col1.innerText = "No more phrases!";
             col2.innerText = "No more phrases!";
-            //results_div.innerHTML = "Thanks! Your results should be downloading now. Please send the file to XXXX on slack."
+            
           }
           
         };
