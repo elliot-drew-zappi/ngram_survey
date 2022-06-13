@@ -19,8 +19,9 @@
         <p>You will see two phraseclouds produced by two different methods from the same set of comments. The size of the phrase indicates its relative importance/prevalence in the document vs the others.</p>
         <p>Click the button (left, right) corresponding to the set of phrases you prefer, or click same if there is no obvious winner.</p>
         The maximum number of phrases shown is 20 - sometimes the number will be fewer due to cutoffs/thresholds built into some methods.</p>
-        <p>You can do as many or as few comparisons as you want - it will show you all possible combinations if you have the patience for it. The order will be random. When you are tired/bored of it, click the button at the bottom of the page to download
-          a file containing your results, then send that file to <b>Elliot Drew</b> on Slack.
+        <p>You will need to do a <b>minimum of 20 comparisons before the download button is enabled</b> - of course, you can do more than 20 if you want (and we would encourage that if you have the time and patience).</p> 
+        <p>
+            The order will be random. After 20 comparisons, you will be able to click the "Click to download results as json" button to get a file containing your results - please send that file to <b>Elliot Drew</b> on Slack.
         </p>
         <p>Alternatively - <a href='./index.html'>see phrases as a list.</a></p>
         <h3>Note! if you leave the page without downloading the results file, your progress will be lost. So make sure you download the file!</h3>
@@ -31,7 +32,8 @@
           <div><button id='button3'>Right</button></div>
       </div>
       <div id = 'results'>
-        <button id="down-button">Click to download results as JSON</button>
+        <button id="down-button" disabled>Click to download results as JSON</button>
+        <h4 id="compCounter">Number of comparisons done: 0</h4>
       </div>
         <div class="grid">
             <div id="col1" style="text-align:center; min-height:500px" >
@@ -59,13 +61,14 @@
         var results = [];
 
         var cur_ask;
-
+        var number_comps = -1;
         var col1 = document.getElementById('col1');
         var col2 = document.getElementById('col2');
 
         var button1 = document.getElementById('button1');
         var button2 = document.getElementById('button2');
         var button3 = document.getElementById('button3');
+        var compCounter = document.getElementById('compCounter');
 
         var downButton = document.getElementById('down-button');
 
@@ -118,6 +121,14 @@
         function updatePage(){
           if(asks.length>0){
             cur_ask = asks.pop();
+
+            number_comps++;
+
+            if(number_comps>=20){
+              downButton.disabled = false;
+            }
+            compCounter.innerHTML = "Number of comparisons done: "+number_comps;
+
             s_name = num_survey[cur_ask[0]];
             m1 = num_method[cur_ask[1]];
             m2 = num_method[cur_ask[2]];
