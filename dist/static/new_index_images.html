@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>N-gram Survey</title>
+    <link rel="stylesheet" href="../styles/pico.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/wordcloud@1.2.2/src/wordcloud2.min.js"></script>
+  </head>
+  <body>
+    <main class="container">
+        <h1>Exploring New PhraseCloud approaches - Survey</h1>
+        <p>The DS team has been looking at different ways to generate wordclouds from verbatim data that show not just single words, but interesting phrases as well. We think that phrases may provide more insightful and useful clouds for clients, and they are a common feature in other wordcloud tools on the web.
+          </p>
+          <p>The idea is that one of these methods could become a replacement/evolution of the current approach.</p>
+          <p>The data used here are phrases generated from 20 verbatim datasets - 10 surveys, both likes and dislikes question answers.</p>
+        <p>You will see two phraseclouds produced by two different methods from the same set of comments. The size of the phrase indicates its relative importance/prevalence in the document vs the others.</p>
+        <h4 style ='color:white' >We are asking you to compare the paired sets of phrases shown, and decide for each pair which set of phrases you would consider to be more useful/appropriate/valuable to a client if they were shown as a wordcloud on the website?</h4>
+        <p>Click the button (left, right) corresponding to the set of phrases you prefer, or click same if there is no obvious winner.</p>
+        <p>The maximum number of phrases shown is 20 - sometimes the number will be fewer due to cutoffs/thresholds built into some methods.</p>
+        <p>After you give an answer, new phrases will be shown for you to compare.</p>
+        <p>
+          You will need to do a <b  style ='color:white' >minimum of 20 comparisons before the download button is enabled</b> - of course, you can do more than 20 if you want (and we would encourage that if you have the time and patience).</p> 
+        <p>
+            The order will be random. <b style ='color:white'>Once you are done, click the "Click to download results as json" button to get a file containing your results</b> - please send that file to <b style ='color:white'>Elliot Drew</b> on Slack.
+        </p>
+        <p>Alternatively - <a href='./index.html'>see phrases as a list.</a></p>
+        <h3>Note! if you leave the page without downloading the results file, your progress will be lost. So make sure you download the file!</h3>
+        
+        <div class="grid">
+          <div><button id='button1'>Left</button></div>
+          <div><button id='button2'>Same</button></div>
+          <div><button id='button3'>Right</button></div>
+      </div>
+      <div id='results'>
+        <button id="down-button" disabled>Click to download results as JSON</button>
+        <h4 id="compCounter">Number of comparisons done: 0</h4>
+      </div>
+        <div class="grid">
+            <div id="col1" style="text-align:center; min-height:500px"></div>
+            <div id="col2" style="text-align:center; min-height:500px"></div>
+        </div>
+        <br><br><br>
+        <hr>
+        
+    </main>
+    <script src="../ngram_survey_data_new.js"></script>
+    <script src="../new_index_images.js"></script>
+  </body>
+</html>
